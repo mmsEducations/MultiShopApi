@@ -7,6 +7,8 @@ builder.Services.AddControllers();//Asp.Net Core MVC altyapýsýný uygulamamýza da
 builder.Services.AddEndpointsApiExplorer(); //Swaggerin apiyi incelemesi ve belgelerin oluþturulmasý 
 builder.Services.AddSwaggerGen();//Swagger belgeleri için gerekli tüm ayarlarýn yapýlandýrýlmasý
 
+
+
 var app = builder.Build();
 
 //Swagger 2

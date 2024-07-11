@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ApiCore;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MultiShopApi.Presentation.Controllers
 {
@@ -27,13 +28,17 @@ namespace MultiShopApi.Presentation.Controllers
         //Kökdizin/api/Home/GetMessages
         [HttpGet]
         [Route("GetMessagesObject")]
-        public List<Student> GetMessagesObject()
+        public ActionResult<Response<List<Student>>> GetMessagesObject()
         {
             List<Student> datas = new List<Student>
             {
-               new Student{ Name= "Burak Asaf Sincar" }, new Student{ Name = "Yiği Ali Sincar" } , new Student{ Name= "Oktay Duman" }
+               new Student{ Name= "Burak Asaf", LastName="Sincar" }, new Student{ Name = "Yiği Ali" ,LastName="Sincar"} , new Student{ Name= "Oktay" }
             };
-            return datas;
+
+            var response = new Response<List<Student>>(true, "Listeleme Başarılı", datas, 200);
+
+
+            return Ok(response);
         }
     }
 }
